@@ -4,19 +4,14 @@ import { title } from 'process';
 const circles = [1, 2, 3, 4]
 const titles = ["Объединение", "Очистка", "Взвешивание", "Сводная таблица"]
 
-const Steps = () => {
-  const [step, setStep] = useState(1);
-  const handlePrevStep = () => {
-    if (step > 1) {
-      setStep((prev) => prev - 1)
-    }
-  }
 
-  const handleNextStep = () => {
-    if (step < 4) {
-      setStep((prev) => prev + 1)
-    }
-  }
+interface StepsProps {
+  step: number;
+}
+
+
+const Steps = ({ step }: StepsProps) => {
+
 
   const getStyle = (index: number) => {
     if (!index) {
@@ -50,10 +45,6 @@ const Steps = () => {
         </div>
 
       </div>
-      {/* <div className="buttons">
-        <button onClick={handlePrevStep} className='button'>prev</button>
-        <button onClick={handleNextStep} className='button'>next</button>
-      </div> */}
     </div>
   );
 };

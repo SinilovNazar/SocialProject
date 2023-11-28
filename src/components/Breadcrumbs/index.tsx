@@ -1,10 +1,11 @@
 import React from 'react';
 import './styles.scss';
 import { Link, useLocation, useResolvedPath } from 'react-router-dom';
+import { Navigations } from '../../constants/Navigations';
 
 
 interface IBreadcrumbs {
-  path?: string;
+  pathname?: string;
   title?: string;
   url?: string;
 }
@@ -18,13 +19,15 @@ const Breadcrumbs = () => {
     .map((crumb, index, array) => {
       const isActiveRoute = index === array.length - 1;
       currentLink += '/' + crumb;
+      crumb = Navigations[crumb as keyof typeof Navigations];
       if (index < array.length - 1) {
         crumb += ' / '
       }
+      console.log('crumb', crumb);
+
       return <Link key={currentLink} className={isActiveRoute ? 'active-crumb crumb' : 'crumb'} to={currentLink}>{crumb}</Link>
     })
-  const url = useResolvedPath("").pathname;
-  console.log('url', url);
+
 
   return (
     <div className='breadcrumbs'>
@@ -34,12 +37,3 @@ const Breadcrumbs = () => {
 };
 
 export default Breadcrumbs;
-
-// loocs like
-
-{/* <span>
-      <Link to={match.url || ''} className={match.isExact ? 'breadcrumb active' : 'breadcrumb'}>
-          {match.url.substr(match.url.lastIndexOf('/')+1, match.url.length)}
-      </Link>
-      <Route path={`${match.url}/:path`} component={Breadcrumbs} />
-  </span> */}

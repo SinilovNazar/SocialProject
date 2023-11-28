@@ -1,11 +1,10 @@
 .container {
-  // max-width: 1296px;
-  // min-width: 1296px;
   width: 1296px;
   padding: 32px;
   padding-bottom: 65px;
   background: #F5F8F9;
   border-radius: 16px;
+
   .header {
     font-weight: 600;
     font-size: 24px;
@@ -31,12 +30,14 @@
       align-items: center;
       // position: relative;
       z-index: 1;
+
       .completed {
         height: 8px;
         width: 8px;
         background: #005FB3;
         border-radius: 50%;
       }
+
       .text {
         position: absolute;
         top: 40px;
@@ -46,11 +47,13 @@
         line-height: 18px;
         color: #00000066;
       }
+
       .active-text {
         font-weight: 500;
         color: #005FB3;
       }
     }
+
     .active {
       outline: 6px solid #D0E1EF;
     }
