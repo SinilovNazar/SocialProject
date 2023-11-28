@@ -1,0 +1,15 @@
+.breadcrumbs {
+  padding: 5px 8px;
+
+  .crumb {
+    font-weight: 400;
+    font-size: 14px;
+    line-height: 18px;
+    text-decoration: none;
+    color: #00000066;
+  }
+
+  .active-crumb {
+    color: #000000CC;
+  }
+}
